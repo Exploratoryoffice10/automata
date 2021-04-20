@@ -48,6 +48,11 @@ class NFA_to_DFA:   # return dfa
         return ps 
 
     def convert(self):
+        ord = dict()
+        j = 0
+        for i in self.cnfa.states:
+            ord[i] = j
+            j+=1
         dfa_table = list()
         ini_st = list()
         ini_st.append([self.cnfa.start]) 
@@ -65,6 +70,9 @@ class NFA_to_DFA:   # return dfa
                     for i in ppp:   
                         temp.add(i) # union
                 temp = list(temp)
+                t1 = [ord[i] for i in temp] 
+                t1.sort()
+                temp = [self.cnfa.states[i] for i in t1]
                 dfa_table.append([states,inp,temp])
         fin_st = []
         for sst in self.pset:
