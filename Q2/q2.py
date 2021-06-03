@@ -55,7 +55,7 @@ class NFA_to_DFA:   # return dfa
             j+=1
         dfa_table = list()
         ini_st = list()
-        ini_st.append([self.cnfa.start]) 
+        ini_st.append(self.cnfa.start) 
         ltrs = self.cnfa.letters
         ps = self.pset
         cd = dict()
@@ -82,7 +82,6 @@ class NFA_to_DFA:   # return dfa
                     continue
         fdfa = DFA(ps,ltrs,dfa_table,ini_st,fin_st)
         return fdfa
-
 
 
 

@@ -67,6 +67,8 @@ class regexp_to_NFA:
 
         while len(stk)!=0:
             fpexp.append(stk.pop())
+        if len(stk) != 0:
+            exit('wrong reg-exp')
         return fpexp
 
     def add_new_nfa(self,ip):
